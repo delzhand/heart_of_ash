@@ -30,11 +30,20 @@
   font-size: 20px;
   font-weight: bold;
 }
+@media all and (max-width: 768px) {
+  .scene-card {
+    font-size: 14px;
+  }
+}
 
 .dialogue-item {
   padding-top: 12px;
   position: relative;
   min-height: 94px;
+}
+
+.reverse.dialogue-item {
+  text-align: right;
 }
 
 .speaker-img {
@@ -66,6 +75,11 @@
   padding: 4px 22px;
   border-radius: 5px;
 }
+@media all and (max-width: 768px) {
+  .speaker-name {
+    font-size: 12px;
+  }
+}
 
 .reverse .speaker-name {
   left: auto;
@@ -84,20 +98,34 @@
 
 .text {
   background: #cab69c;
-  padding: 14px 72px 14px 72px;
+  padding: 14px 14px 14px 72px;
   border-radius: 3px;
   border: 2px solid black;
   margin: 0 42px 0 42px;
   font-size: 18px;
+  display: inline-block;
+}
+@media all and (max-width: 768px) {
+  .text {
+    font-size: 12px;
+  }
 }
 
+
 .reverse .text {
+  padding: 14px 72px 14px 14px;
+  text-align: left;
 }
 
 .description-item {
   text-align: center;
   font-style: italic;
   font-size: 18px;
+}
+@media all and (max-width: 768px) {
+  .description-item {
+    font-size: 12px;
+  }
 }
 
 .advance {
