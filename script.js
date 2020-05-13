@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
-  $json = { 
+  var json = { 
+    "known_speakers": [
+      "Cainas",
+      "Aescher"
+    ],
     "scenes": [
       {
         "scene_id": "s1",
@@ -8,10 +12,6 @@ $(document).ready(function() {
         "reverse_speakers": [
           "Cainas",
           "Marta"
-        ],
-        "known_speakers": [
-          "Cainas",
-          "Aescher"
         ],
         "lines": [
           {"transition": "FADE IN"},
@@ -43,11 +43,48 @@ $(document).ready(function() {
           {"speaker": "Aescher", "text": "The things I do for you, brother."},
           {"transition": "PAN UP to END SCENE"}
         ]
+      },
+      {
+        "scene_id": "s2/b1",
+        "location": "Gulmada, Tercia - Parvio Bridge",
+        "reverse_speakers": [
+          "Guard 1",
+          "Guard 2",
+          "Aescher"
+        ],
+        "lines": [
+          {"description": 'Rain pours down on Aescher and Cainas, wearing dark cloaks and standing in the middle of a stone bridge with their mercenary allies. A crude barrier blocks the road. A pair of guards enter the scene from the far end.'},
+          {"speaker": "Guard 1", "text": "Uhl’domin! The Gar-Azul! I might have known."},
+          {"speaker": "Guard 2", "text": "After all the trouble we went to, avoiding the highroad..."},
+          {"speaker": "Cainas", "text": "Why bother avoiding the highroad if you weren’t going to ford the river?"},
+          {"speaker": "Guard 1", "text": "Halt the wagons! Defend the caravan!"},
+          {"description": "Guard 2 whistles and three more guards enter the scene."},
+          {"description": "Battle ensues."},
+          {"speaker": "Cainas", "text": "That’s the last of the guards. All that remains is to terrify the merchants, let loose the horses, and destroy the wagons."},
+          {"speaker": "Aescher", "text": "I hate this part. Villainy doesn’t suit either of us."},
+          {"description": "Aescher moves towards the wagons."},
+          {"speaker": "Aescher", "text": "What are they transporting, anyway?"},
+          {"speaker": "Cainas", "text": "Timber and grain. Not much for victory spoils, but at least it all burns."},
+          {"speaker": "Aescher", "text": "Grain? Cainas…"},
+          {"description": "Cainas looks away."},
+          {"speaker": "Aescher", "text": "Cainas Allesander! That’s food! Food the people in Farrongard need!"},
+          {"speaker": "Cainas", "text": "Not this again…"},
+          {"speaker": "Aescher", "text": "Brother, I can’t keep doing this. People depend on these shipments. This is one step away from taking food from the mouths of the poor."},
+          {"speaker": "Cainas", "text": "Why didn’t you ask what the shipment was before we left?"},
+          {"speaker": "Aescher", "text": "I thought it was steel or spices or—or—fucking gemstones! I don’t know! I assumed you’d tell me if it was something like this!"},
+          {"speaker": "Cainas", "text": "No you didn’t! You didn’t ask because you didn’t want to know until it was already done! Because you were always going to do it, and you didn’t want to feel bad until afterwards!"},
+          {"speaker": "Aescher", "text": "For you! How dense can you be!? Do you imagine that, had you not dragged me into this business, I would be standing in a muddy Malhaven by-road in the middle of the night, with blood still wet on my blade?"},
+          {"speaker": "Cainas", "text": "We need the money, Ash."},
+          {"description": "Aescher turns and walks away, then pauses."},
+          {"speaker": "Aescher", "text": "You need the money, Cainas. You think you’ll buy back the ancestral home and restore our family name and everything will be bright."},
+          {"speaker": "Aescher", "text": "And maybe you’ll be right. But the way things are going, I won’t be there with you."},
+          {"description": "AESCHER exits the scene."}
+        ]
       }
     ]
   };
-
-  $.each($json.scenes, function(i, data){
+      
+  $.each(json.scenes, function(i, data){
     $('.base .scene-card').clone().html(data.location).appendTo('.lines');
     $.each(data.lines, function(j, line){
       if (line.description) {
@@ -57,7 +94,7 @@ $(document).ready(function() {
         $el = $('.base .dialogue-item').clone();
         $el.find('.text').html(line.text);
         $el.find('.speaker-name').html(line.speaker);
-        if ($.inArray(line.speaker, data.known_speakers) >= 0) {
+        if ($.inArray(line.speaker, json.known_speakers) >= 0) {
           $el.find('.speaker-img img').attr('src', 'speakers/' + line.speaker.toLowerCase() + '.png');
         }
         if ($.inArray(line.speaker, data.reverse_speakers) >= 0) {
@@ -70,11 +107,11 @@ $(document).ready(function() {
 
 
   $('.advance').on("click", function(){
-    $('.lines .line:hidden').first().show();
-
+    $el = $('.lines .line:hidden').first().fadeIn(600);
     if (!$('.lines .line:hidden').length) {
       $('.advance').remove();
     }
+    $('.lines')[0].scrollIntoView({behavior: "smooth", block: "end"});
   });
 
 });
