@@ -14,12 +14,11 @@
   display: block;
 }
 .profile .name {
-  margin-top: 35px;
-  font-size: 40px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 .profile .nick {
-  font-size: 20px;
+  font-size: 14px;
   text-transform: uppercase;
   color: gray;
 }
