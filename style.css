@@ -1,3 +1,29 @@
+.profile {
+  font-family: 'Merriweather', serif;
+  clear: left;
+  margin: 15px;
+  overflow: auto;
+}
+.profile .image {
+  float: left;
+  margin-right: 15px;
+}
+.profile .image img {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+.profile .name {
+  margin-top: 35px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+.profile .nick {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: gray;
+}
+
 .pin {
   position: fixed;
   width: 100%;

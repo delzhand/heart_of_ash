@@ -95,7 +95,7 @@ $(document).ready(function() {
         $el.find('.text').html(line.text);
         $el.find('.speaker-name').html(line.speaker);
         if ($.inArray(line.speaker, json.known_speakers) >= 0) {
-          $el.find('.speaker-img img').attr('src', 'speakers/' + line.speaker.toLowerCase() + '.png');
+          $el.find('.speaker-img img').attr('src', 'speakers/' + line.speaker.toLowerCase() + '.jpeg');
         }
         if ($.inArray(line.speaker, data.reverse_speakers) >= 0) {
           $el.addClass('reverse');
