@@ -7,6 +7,8 @@
 .profile .image {
   float: left;
   margin-right: 15px;
+  width: 150px;
+  min-height: 45px;
 }
 .profile .image img {
   width: 150px;
@@ -21,6 +23,13 @@
   font-size: 14px;
   text-transform: uppercase;
   color: gray;
+}
+.profile .title {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.profile .aka {
+  font-size: 16px;
 }
 
 .pin {
